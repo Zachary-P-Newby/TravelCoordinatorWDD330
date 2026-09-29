@@ -1,0 +1,34 @@
+{
+  "name": "travelcoordinator",
+  "version": "1.0.0",
+  "description": "Travel Coordination Website for BYUI WDD330 Final Project",
+  "keywords": [
+    "travel",
+    "project",
+    "school"
+  ],
+  "homepage": "https://github.com/Zachary-P-Newby/TravelCoordinatorWDD330#readme",
+  "bugs": {
+    "url": "https://github.com/Zachary-P-Newby/TravelCoordinatorWDD330/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zachary-P-Newby/TravelCoordinatorWDD330.git"
+  },
+  "license": "GPL-3.0",
+  "author": "ZacharyPNewby",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build --emptyOutDir",
+    "lint": "eslint *.js src/**/*.js",
+    "format":"prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "eslint": "^10.11.0",
+    "prettier": "^3.9.9",
+    "vite": "^8.3.1"
+  }
+}
