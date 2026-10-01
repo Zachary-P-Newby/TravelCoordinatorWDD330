@@ -1,0 +1,44 @@
+
+@font-face {
+        font-family: Notable;
+        src: url("/fonts/Notable/Notable-Regular.ttf") format("truetype");
+}
+    
+
+@font-face {
+    font-family: Roboto;
+    src: url("/fonts/Roboto/Roboto-VariableFont_wdth\,wght.ttf");
+}
+
+:root {
+    --primary: #1170EC ;
+    --secondary: #FFC300;
+    --white: #ffffff;
+    --text: #232729;
+    --neutral1: #CDC29B;
+    --neutral2: #B1AFA7;
+    --relief: #FF5733;
+    
+    
+    
+}
+
+body{
+    background-color: #CDC29B;
+}
+
+header, footer
+{
+    background-color: var(--primary);
+    min-height: 20 vh;
+    margin: 0%;
+}
+
+p{
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+h1{
+    font-family: Notable, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
