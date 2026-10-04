@@ -1,19 +1,19 @@
-import { resolve } from 'path';
-import { defineConfig } from 'vite';
+import { resolve } from "path";
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  root: 'src/',
+  root: "src/",
 
   server: {
     allowedHosts: [],
   },
 
   build: {
-    outDir: '../dist',
+    outDir: "../dist",
     rollupOptions: {
       input: {
-        main: resolve(__dirname, 'src/index.html'),
-        
+        main: resolve(import.meta.dirname, "src/index.html"),
+        hotelData: resolve(import.meta.dirname, "src/hotel-data/index.html"),
       },
     },
   },

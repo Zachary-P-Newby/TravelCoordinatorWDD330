@@ -1,0 +1,120 @@
+@font-face {
+  font-family: Notable;
+  src: url("/fonts/Notable/Notable-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf");
+}
+
+:root {
+  --primary: #1170ec;
+  --secondary: #ffc300;
+  --white: #ffffff;
+  --text: #232729;
+  --neutral1: #cdc29b;
+  --neutral2: #b1afa7;
+  --relief: #ff5733;
+
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+p,
+label,
+a {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+h1 {
+  font-family:
+    Notable, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #cdc29b;
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header,
+footer {
+  display: block;
+  background-color: var(--primary);
+  max-height: 15vh;
+  min-height: 10vh;
+  margin: 0%;
+  padding: 1rem 1rem;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  img {
+    max-width: 15vw;
+    max-height: 15vh;
+  }
+}
+
+footer {
+  justify-self: flex-end;
+}
+
+main {
+  min-height: 100%;
+  margin: 0;
+  padding: 10vw 10vh;
+  background-image: url("/images/airplane-pexels-davdkuko-35237013.jpg");
+
+  .main-sub-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .home-data-box {
+      width: 10rem;
+      height: 15rem;
+      background-color: var(--relief);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 2%;
+
+      &* {
+        display: block;
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      article {
+        background-color: var(--neutral2);
+        text-wrap: stable;
+      }
+    }
+  }
+
+  #entity-data-display {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--relief);
+    padding: 5vh 5vw;
+
+    ul {
+      background-color: var(--neutral1);
+    }
+  }
+}
