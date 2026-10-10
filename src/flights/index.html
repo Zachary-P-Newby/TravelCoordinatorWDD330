@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <!--define language -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--set width for content-->
+    <title>Travel Coordinator | Flight Search</title>
+    <link rel="stylesheet" href="../CSS/styles.css" />
+    <script src="../js/flights.js" type="module"></script>
+  </head>
+  <body>
+    <header></header>
+    <main>
+      <h1>Today's Flights</h1>
+      
+      <div id="entity-data-display">
+        <form id="flight-search-form" onsubmit="event.preventDefault()">
+          <label for="search-by">Search by: </label>
+          <select id="search-by-dropdown" name="search-by">
+            <optgroup label="Airline">
+              <option value="airline_name">Airline Name</option>
+              <option value="airline_iata">Airline IATA Code</option>
+            </optgroup>
+            
+            <optgroup label="Flight">
+              <option value="flight_iata">Flight IATA Code</option>
+              <option value="flight_icao">Flight ICAO Code</option>
+              <option value="flight_number">Flight Number</option>
+              <option value="flight_status">Flight Status</option>
+            </optgroup>
+            
+            <optgroup label="Arrival">
+              <option value="arr_iata">Arrival IATA Code</option>
+              <option value="arr_icao">Arrival ICAO Code</option>
+              <option value="arr_scheduled_time_arr">Arrival Date (YYYY-MM-DD)</option>
+            </optgroup>
+            <optgroup label="Departure">
+              <option value="dep_iata">Departure IATA Code</option>
+              <option value="dep_icao">Departure ICAO Code</option>
+              <option value="dep_scheduled_time_dep">Departure Date (YYYY-MM-DD)</option>
+            </optgroup>
+          </select>
+          <label for="flight-searchbar">Searchbar</label>
+          <input name="flight-searchbar" id="flight-searchbar" type="text" limit="50"/>
+          <label for="submit">Submit</label>
+          <button type="submit" id="submit-btn">Search</button>
+        </form>
+        <ul id="entity-data-ul"></ul>
+      </div>
+      
+    </main>
+    <footer></footer>
+  </body>
+</html>

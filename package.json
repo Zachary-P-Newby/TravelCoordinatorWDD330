@@ -22,6 +22,7 @@
   "scripts": {
     "start": "vite",
     "build": "vite build --emptyOutDir",
+    "preview": "vite preview",
     "lint": "eslint *.js src/**/*.js",
     "format": "prettier --ignore-path ./.gitignore --write \"./**/*.{html,json,js,ts,css}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -39,6 +40,7 @@
     "eslint-import-resolver-node": "^0.4.0",
     "eslint-plugin-import": "^2.32.0",
     "jest": "^30.5.2",
+    "prettier": "^3.9.9",
     "vite": "^8.3.2"
   }
 }

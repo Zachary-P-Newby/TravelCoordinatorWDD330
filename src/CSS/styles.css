@@ -13,6 +13,7 @@
   --secondary: #ffc300;
   --white: #ffffff;
   --text: #232729;
+  --box-shadow:#23272983;
   --neutral1: #cdc29b;
   --neutral2: #b1afa7;
   --relief: #ff5733;
@@ -51,15 +52,19 @@ header,
 footer {
   display: block;
   background-color: var(--primary);
-  max-height: 15vh;
+  max-height: 20vh;
   min-height: 10vh;
   margin: 0%;
-  padding: 1rem 1rem;
+  padding: 1rem;
 
   div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+
+    div{
+      flex-basis: 1;
+    }
   }
 
   img {
@@ -67,9 +72,11 @@ footer {
     max-height: 15vh;
   }
 }
-
-footer {
-  justify-self: flex-end;
+header{
+  border-bottom: #ffc300 solid 1vh;
+}
+footer{
+  border-top: #ffc300 solid 1vh;
 }
 
 main {
@@ -84,13 +91,15 @@ main {
     justify-content: space-between;
 
     .home-data-box {
-      width: 10rem;
+      width: 15rem;
       height: 15rem;
       background-color: var(--relief);
       display: flex;
       flex-direction: column;
       justify-content: center;
       padding: 2%;
+      border-radius: 5%;
+      box-shadow: var(--box-shadow) 3px 3px 5px;
 
       &* {
         display: block;
