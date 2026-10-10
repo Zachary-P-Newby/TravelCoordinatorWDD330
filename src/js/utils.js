@@ -5,7 +5,6 @@ export async function convertToJson(response) {
       return result;
     } catch (err) {
       //console.log(err);
-      
     }
   } else {
     throw { name: "serviceError", message: await response.json() };
@@ -53,8 +52,7 @@ export async function loadHeaderFooter() {
 }
 
 //borrowed this as well
-export function getParam(param){
-
+export function getParam(param) {
   //get the query string part of the URL
   const queryString = window.location.search;
   //get the parmemters of the url

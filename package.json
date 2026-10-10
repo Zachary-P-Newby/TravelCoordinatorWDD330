@@ -35,12 +35,13 @@
     "last 3 safari versions"
   ],
   "devDependencies": {
+    "@eslint/compat": "^2.1.1",
     "eslint": "^9.39.5",
+    "eslint-compat-utils": "0.6.5",
     "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-node": "^0.4.0",
     "eslint-plugin-import": "^2.32.0",
-    "jest": "^30.5.2",
     "prettier": "^3.9.9",
-    "vite": "^8.3.2"
+    "vite": "^8.3.4"
   }
 }

@@ -13,7 +13,7 @@
   --secondary: #ffc300;
   --white: #ffffff;
   --text: #232729;
-  --box-shadow:#23272983;
+  --box-shadow: #23272983;
   --neutral1: #cdc29b;
   --neutral2: #b1afa7;
   --relief: #ff5733;
@@ -62,7 +62,7 @@ footer {
     flex-direction: row;
     justify-content: space-between;
 
-    div{
+    div {
       flex-basis: 1;
     }
   }
@@ -72,10 +72,10 @@ footer {
     max-height: 15vh;
   }
 }
-header{
+header {
   border-bottom: #ffc300 solid 1vh;
 }
-footer{
+footer {
   border-top: #ffc300 solid 1vh;
 }
 
