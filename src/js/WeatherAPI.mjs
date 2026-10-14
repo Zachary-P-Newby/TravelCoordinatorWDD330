@@ -1,7 +1,7 @@
 import apiQueryFactory from "./APIQuery.mjs";
 
 const weatherAPI_BaseURL = import.meta.env.VITE_WEATHER_API_BASE_URL;
-const weatherAPI_Key = import.meta.env.VITE_WEATHERAPI_API_KEY;
+const weatherAPI_Key = import.meta.env.VITE_WEATHER_API_API_KEY;
 
 export default class WeatherAPI {
     constructor(){
