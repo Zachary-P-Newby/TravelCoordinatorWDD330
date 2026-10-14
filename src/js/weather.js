@@ -19,7 +19,7 @@ function enterNewDestination() {
 }
 
 function onPageLoad() {
-  const cityName = getLocalStorage("destination-city-name");
+  const cityName = getLocalStorage("weather-city-name");
   if (cityName != null) {
     renderWeatherData(removeWhitespace(cityName));
   } else {
