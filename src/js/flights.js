@@ -2,23 +2,32 @@ import AviationStackAPI from "./AviationStackAPI.mjs";
 import { loadHeaderFooter } from "./utils";
 loadHeaderFooter();
 
-const ouputList = document.querySelector("#entity-data-ul");
+const ouputList = document.querySelector(".entity-data-ul");
 const aviationAPI = new AviationStackAPI();
-const flightForm = document.querySelector("#flight-search-form");
+const flightSearchForm = document.querySelector("#flight-search-form");
+const browseAllFlightsForm = document.querySelector("#browse-all-flights-form");
 
 //called when page is loaded
-async function displayFlightData(params = null) {
-  console.log(params);
+async function displayFlightData(params = []) {
+  //reset inner html
+  ouputList.innerHTML = ``;
 
-  params.push("limit=10");
   const result = await aviationAPI.queryFlightData(params);
-  console.log(result.data);
-  Object.values(result.data).forEach((item) => {
-    Object.entries(item).forEach(([key, value]) => {
-      const li = document.createElement("li");
-      li.innerHTML = `<p>${key}:${value}</p>`;
-      ouputList.appendChild(li);
-    });
+
+  result.data.forEach((item) => {
+    const li = document.createElement("li");
+    li.innerHTML = `<h3>${item.airline.name} Flight ${item.flight.number}</h3>
+    <ul>
+      <li>IATA Code: ${item.flight.iata}</li>
+      <li>Status: ${item.flight_status}</li>
+      <li>Departure:${item.departure.airport} - ${item.departure.scheduled} - Timezone: ${item.departure.timezone}</li>
+      <li>Arrival: ${item.arrival.airport} - ${item.arrival.scheduled} - Timezone: ${item.arrival.timezone}</li>
+    </ul>
+    `;
+
+    ouputList.appendChild(li);
+
+    ouputList.scrollIntoView();
   });
 }
 
@@ -28,7 +37,16 @@ async function searchFlightData() {
   const searchParam = document.getElementById("search-by-dropdown").value;
   const searchTerm = document.getElementById("flight-searchbar").value;
 
-  await displayFlightData([`${searchParam}=${searchTerm}`]);
+  await displayFlightData([
+    `${searchParam}=${searchTerm}`,
+    "limit=20",
+    "offset=0",
+  ]);
 }
 
-flightForm.addEventListener("submit", searchFlightData);
+async function browseAllFlights() {
+  await displayFlightData(["limit=100", "offset=0"]);
+}
+
+flightSearchForm.addEventListener("submit", searchFlightData);
+browseAllFlightsForm.addEventListener("submit", browseAllFlights);

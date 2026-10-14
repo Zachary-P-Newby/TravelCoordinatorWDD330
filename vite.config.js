@@ -12,21 +12,12 @@ export default defineConfig({
     outDir: "../dist",
     rollupOptions: {
       input: {
-        main: resolve(import.meta.dirname, "src/index.html"),
-        hotelSearch: resolve(
-          import.meta.dirname,
-          "src/hotel-search/index.html",
-        ),
-        hotelDetails: resolve(
-          import.meta.dirname,
-          "src/hotel-details/index.html",
-        ),
-        flights: resolve(import.meta.dirname, "src/flights/index.html"),
-        destination: resolve(import.meta.dirname, "src/destination/index.html"),
-        currentLocation: resolve(
-          import.meta.dirname,
-          "src/current-location/index.html",
-        ),
+        main: resolve(__dirname, "src/index.html"),
+        hotelSearch: resolve(__dirname,"src/hotel-search/index.html",),
+        hotelDetails: resolve(__dirname,"src/hotel-details/index.html",),
+        flights: resolve(__dirname, "src/flights/index.html"),
+        weather: resolve(__dirname, "src/weather/index.html"),
+
       },
     },
   },

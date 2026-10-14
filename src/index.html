@@ -13,28 +13,37 @@
     <header></header>
     <main>
       <div class="main-sub-div">
-        <div class="home-data-box" id="home-destinations">
-          <h2>Destinations</h2>
-          <form id="desination-search">
-            <label for="destination"
-              >Find Hotels and check the weather at your destination.</label
-            >
-            <input name="destination" type="search" />
-            <button type="submit">Go</button>
-          </form>
+        <div class="home-data-box" id="home-weather">
+          <h2>Global Weather:</h2>
+          <article>
+            <form class="weather-search" onsubmit="event.preventDefault()">
+              <label for="weather-search">Check Weather Around the Globe</label>
+              <input
+                name="weather-search"
+                type="search"
+                id="weather-searchbar"
+                placeholder="Your Destination:"
+              />
+              <button id="weather-submit" type="submit">Go</button>
+            </form>
+          </article>
         </div>
-        <div class="home-data-box" id="home-current-location">
-          <h2>Current Location:</h2>
+        <div class="home-data-box" id="home-european-hotels">
+          <h2>Hotels:</h2>
 
-          <article id="current-location-data">
-            <p><a href="/hotel-search/index.html">Find Hotels Near You</a></p>
-            <p><a>View</a></p>
+          <article id="european-hotels-data">
+            <p class="home-data-box-link">
+              <a href="/hotel-search/index.html">Find Hotels Across Europe</a>
+            </p>
           </article>
         </div>
         <div class="home-data-box" id="home-flights-airports">
-          <h2>Flights</h2>
+          <h2>Flights:</h2>
           <article>
-            <a href="/flights/index.html">View Today's Flights</a>
+            <p>Monitor Flights around the Globe</p>
+            <p class="home-data-box-link">
+              <a href="/flights/index.html">Check Flight Status</a>
+            </p>
           </article>
         </div>
       </div>

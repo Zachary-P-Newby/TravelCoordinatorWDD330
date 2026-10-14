@@ -8,14 +8,15 @@ export default class AviationStackAPI {
     }
 
     async queryFlightData(flightParams = null){
+
         //place access key in query
         if (flightParams != null){
             let queryParams = [this.key];
-            console.log(queryParams);
+
             flightParams.forEach(element => {
                 queryParams.push(element);
             });
-            console.log(queryParams);
+
             return await this.apiQuery(queryParams);
         }
         else{

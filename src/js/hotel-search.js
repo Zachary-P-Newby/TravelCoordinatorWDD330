@@ -3,12 +3,12 @@ import AccomodationsAPI from "./AccomodationsAPI.mjs";
 loadHeaderFooter();
 
 const hotelAPI = new AccomodationsAPI();
-const ouputList = document.querySelector("#entity-data-ul");
+const ouputList = document.querySelector(".entity-data-ul");
 
-async function populateElement() {
-  const data = await hotelAPI.searchByName("Apartment");
-  console.log(window.location);
+const hotelSearchForm = document.getElementById("hotel-search-form");
 
+function renderHotels(data) {
+  ouputList.innerHTML = "";
   Object.values(data.Items).forEach((value) => {
     //base URL to hotel details page =  ""
 
@@ -28,4 +28,17 @@ async function populateElement() {
   });
 }
 
-populateElement();
+async function searchForHotel() {
+  const param = document.getElementById("hotel-searchbar").value;
+  const data = await hotelAPI.searchByName(param);
+
+  renderHotels(data);
+}
+
+hotelSearchForm.addEventListener("submit", searchForHotel);
+
+async function onPageLoad() {
+  renderHotels(await hotelAPI.getHotels());
+}
+
+onPageLoad();

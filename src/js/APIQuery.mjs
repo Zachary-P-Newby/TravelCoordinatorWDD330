@@ -5,10 +5,11 @@ import { convertToJson } from "./utils";
      * @returns data - json object containing results or an error if the query fails
      */
 export default function apiQueryFactory(url) {
-        let query = url;
-        
-        return async (parameters) =>{
+        return async function(parameters, isRouteParam = false){
+            let query = url;
+
             try{
+
                 if(parameters.length > 1){
                     query = query + "?";
                     parameters.forEach(param=>{
@@ -16,8 +17,16 @@ export default function apiQueryFactory(url) {
                     })
                 }
                 else if (parameters.length == 1){
-                    query = query + `/${parameters[0]}`;
+
+                    if(isRouteParam == true){
+                        query = query + `/${parameters[0]}`;
+                    }
+                    else{
+                        query = query + `?${parameters[0]}`;
+                    }
+                    
                 }
+
                 console.log("Query: "+ query);
                 const response = await fetch(query);
                 const data = await convertToJson(response);
@@ -28,8 +37,7 @@ export default function apiQueryFactory(url) {
                     throw new error("QUERY RESULT IS NULL");
                 }
             }catch(error){
-                console.log(`ERROR: ${error}`);
-                return [error]
+                return error.message;
             }
         }
         

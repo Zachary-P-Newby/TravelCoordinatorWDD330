@@ -13,49 +13,90 @@
     <header></header>
     <main>
       <h1>Today's Flights</h1>
+      <div class="entity-data-display" id="flight-edd">
+        <section>
+          <div id="flight-search-form-div">
+            <h2>Search:</h2>
+            <form id="flight-search-form" onsubmit="event.preventDefault()">
+              <label for="search-by">Search by:</label>
+              <select id="search-by-dropdown" name="search-by">
+                <optgroup label="Airline">
+                  <option value="airline_name">Airline Name</option>
+                  <option value="airline_iata">Airline IATA Code</option>
+                </optgroup>
 
-      <div id="entity-data-display">
-        <form id="flight-search-form" onsubmit="event.preventDefault()">
-          <label for="search-by">Search by: </label>
-          <select id="search-by-dropdown" name="search-by">
-            <optgroup label="Airline">
-              <option value="airline_name">Airline Name</option>
-              <option value="airline_iata">Airline IATA Code</option>
-            </optgroup>
+                <optgroup label="Flight">
+                  <option value="flight_iata">Flight IATA Code</option>
+                  <option value="flight_number">Flight Number</option>
+                  <option value="flight_status">Flight Status</option>
+                </optgroup>
 
-            <optgroup label="Flight">
-              <option value="flight_iata">Flight IATA Code</option>
-              <option value="flight_icao">Flight ICAO Code</option>
-              <option value="flight_number">Flight Number</option>
-              <option value="flight_status">Flight Status</option>
-            </optgroup>
+                <optgroup label="Arrival">
+                  <option value="arr_iata">Arrival IATA Code</option>
+                </optgroup>
+                <optgroup label="Departure">
+                  <option value="dep_iata">Departure IATA Code</option>
+                </optgroup>
+              </select>
+              <label for="flight-searchbar">Search:</label>
+              <input
+                name="flight-searchbar"
+                id="flight-searchbar"
+                type="text"
+                limit="50"
+              />
+              <label for="submit">Submit</label>
+              <button type="submit" id="submit-btn">Search</button>
+            </form>
 
-            <optgroup label="Arrival">
-              <option value="arr_iata">Arrival IATA Code</option>
-              <option value="arr_icao">Arrival ICAO Code</option>
-              <option value="arr_scheduled_time_arr">
-                Arrival Date (YYYY-MM-DD)
-              </option>
-            </optgroup>
-            <optgroup label="Departure">
-              <option value="dep_iata">Departure IATA Code</option>
-              <option value="dep_icao">Departure ICAO Code</option>
-              <option value="dep_scheduled_time_dep">
-                Departure Date (YYYY-MM-DD)
-              </option>
-            </optgroup>
-          </select>
-          <label for="flight-searchbar">Searchbar</label>
-          <input
-            name="flight-searchbar"
-            id="flight-searchbar"
-            type="text"
-            limit="50"
-          />
-          <label for="submit">Submit</label>
-          <button type="submit" id="submit-btn">Search</button>
-        </form>
-        <ul id="entity-data-ul"></ul>
+            <form
+              id="browse-all-flights-form"
+              onsubmit="event.preventDefault()"
+            >
+              <button
+                type="submit"
+                id="browse-all-flights-btn"
+                name="browse-all-flights-btn"
+              >
+                Browse All Flights
+              </button>
+            </form>
+          </div>
+
+          <div id="flight-guide">
+            <h2>Search Guide:</h2>
+            <article>
+              <p>
+                I have a 100 query per month limit, so flights are not queried
+                on page load. Also, flights are limited to the current day. (No
+                historical data.)
+                <br />But you can search by airline name, flight number, flight
+                status, or IATA code for airline, flight, departure, and
+                arrival. Browse all flights shows 100 current flights. Use that
+                to get an idea of what the search terms are.
+              </p>
+              <div>
+                <h4>Accepted Flight statuses</h4>
+                <ul>
+                  <li>scheduled</li>
+                  <li>active</li>
+                  <li>landed</li>
+                  <li>cancelled</li>
+                  <li>incident</li>
+                  <li>diverted</li>
+                </ul>
+                <p>Only these 6 are accepted.</p>
+              </div>
+
+              <h3>More Information</h3>
+              <p>
+                <a href="https://www.iata.org/en/services/codes/">IATA Codes</a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <ul class="entity-data-ul" id="flight-data-ul"></ul>
       </div>
     </main>
     <footer></footer>

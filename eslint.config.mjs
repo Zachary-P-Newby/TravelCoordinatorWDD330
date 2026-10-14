@@ -7,6 +7,7 @@ import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
 
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const compat = new FlatCompat({
@@ -17,8 +18,9 @@ const compat = new FlatCompat({
 
 export default defineConfig([{
     extends: fixupConfigRules(compat.extends("eslint:recommended", "plugin:import/errors", "prettier")),
-
+    files: ["vite.config.js"],
     plugins: {
+
         import: fixupPluginRules(_import),
     },
 
@@ -67,4 +69,14 @@ export default defineConfig([{
 
         "no-unused-expressions": "off",
     },
+
+    settings: {
+        "import/resolver": {
+            node: {
+            extensions: [".js", ".mjs", ".cjs"],
+        },
+        },
+    },
+
+    
 }]);

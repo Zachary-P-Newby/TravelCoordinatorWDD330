@@ -1,36 +1,35 @@
+import addBreadcrumbs from "./BreadCrumbs.mjs";
+
+export function removeWhitespace(input) {
+  let splitInput = input.split(" ");
+
+  return splitInput.join("_");
+}
+
+/*
+These were copied from the SleepOutside project because I needed them here and would have just ended up recreating them.
+I do not know if that is an issue, but these are pretty basic utility functions. That I would use on mutliple sites. Though I made some adjustments as needed
+*/
+
+// retrieve data from localstorage
+export function getLocalStorage(key) {
+  return JSON.parse(localStorage.getItem(key));
+}
+// save data to local storage
+export function setLocalStorage(key, data) {
+  localStorage.setItem(key, JSON.stringify(data));
+}
+
 export async function convertToJson(response) {
   if (response.ok) {
     try {
       const result = await response.json();
       return result;
     } catch (err) {
-      //console.log(err);
+      throw { name: "ERROR", message: err };
     }
   } else {
     throw { name: "serviceError", message: await response.json() };
-  }
-}
-
-/* I borrowed these from the sleep outside so I could have consistent headers and footers */
-export function renderListWithTemplate(
-  template,
-  parentElement,
-  list,
-  position = "afterbegin",
-  clear = false,
-) {
-  const htmlStrings = list.map(template);
-  // if clear is true we need to clear out the contents of the parent.
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-}
-
-export function renderWithTemplate(template, parentElement, data, callback) {
-  parentElement.innerHTML = template;
-  if (callback) {
-    callback(data);
   }
 }
 
@@ -47,11 +46,13 @@ export async function loadHeaderFooter() {
   const headerElement = document.querySelector("header");
   const footerElement = document.querySelector("footer");
 
-  renderWithTemplate(headerTemplate, headerElement);
-  renderWithTemplate(footerTemplate, footerElement);
+  headerElement.innerHTML = headerTemplate;
+  footerElement.innerHTML = footerTemplate;
+
+  //now I run this in here instead of each page with a header and footer.
+  addBreadcrumbs();
 }
 
-//borrowed this as well
 export function getParam(param) {
   //get the query string part of the URL
   const queryString = window.location.search;

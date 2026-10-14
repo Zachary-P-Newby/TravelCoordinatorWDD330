@@ -13,8 +13,31 @@
     <header></header>
     <main>
       <h1>Hotels</h1>
-      <div id="entity-data-display">
-        <ul id="entity-data-ul"></ul>
+      <div>
+        <div class="entity-data-display" id="hotel-entity-data-display">
+          <ul class="entity-data-ul"></ul>
+          <div id="hotel-info">
+            <h2>Find Hotels</h2>
+            <p>
+              Powered by
+              <a
+                href="https://databrowser.opendatahub.com/dataset-overview/7c8f490d-7b54-4a88-801f-f7669f5aaed9"
+                >OpenDataHub</a
+              >, You can search for hotels across Europe by name. Click on one
+              for more details.
+            </p>
+            <form id="hotel-search-form" onsubmit="event.preventDefault()">
+              <label for="hotel-searchbar">Search:</label>
+              <input
+                type="text"
+                id="hotel-searchbar"
+                name="hotel-searchbar"
+                maxlength="100"
+              />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
